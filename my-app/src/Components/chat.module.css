@@ -6,7 +6,8 @@
   height: 90vh ;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
+  transition: 0.4s;
 }
 .senderContainer {
   width: auto;
@@ -16,6 +17,7 @@
   padding: 0px;
   align-items: center;
   flex-direction: row;
+  word-break: break-all;
   justify-content: flex-start;
 }
 .recieverContainer {
@@ -30,8 +32,6 @@
 }
 .data {
   max-width: 80%;
-  flex-wrap: wrap;
-  word-wrap:break-word;
   font-size: 21px;
   font-weight: 100;
   color: whitesmoke;
@@ -42,19 +42,28 @@
   padding: 10px;
   display: flex;
   justify-content: center;
+  transition: 0.3s;
   align-items: center;
 }
 .top {
  display: flex;
  flex-direction: column;
  width: auto;
-  
 }
 .bottom {
+  bottom: 0px;
+  position: static;
   margin-top: 10px;
   display: flex;
   width: 100%;
   align-items: center;
+}
+.chatArea{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 100%;
+  overflow-x: auto;
 }
 .SendButton{
   border-radius: 50px;
@@ -70,6 +79,7 @@
   border-radius: 15px;
   padding: 10px;
   border-style: none;
+  transition: 0.5s;
 }
 ::placeholder{
   font-family: "Cabin", sans-serif;
@@ -95,10 +105,32 @@ input{
   border-radius: 50px;
   height: 100%;
   object-fit: cover;
+  transition: 0.3s;
 }
+
+
 
 @media only screen and (max-width: 400px) {
   .data {
     font-size: 15px;
   }
+}
+
+.chatArea::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: #e2e2e2;
+}
+
+.chatArea::-webkit-scrollbar {
+  border-radius: 10px;
+  width: 12px;
+  background-color: #2e2e2e;
+}
+
+.chatArea::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  width: 12px;
+  -webkit-box-shadow: inset 0 0 0px #4c8bf5;
+  background-color: rgb(41, 95, 182);
 }
