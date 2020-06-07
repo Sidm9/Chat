@@ -6,7 +6,10 @@ function App() {
   return (
     <div className="container">
       <div className="App">
-        <Chat />
+        <Chat type = "Reciever" />
+      </div>
+      <div className="App">
+        <Chat type = "Sender"/>
       </div>
     </div>
   );

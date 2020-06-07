@@ -7,7 +7,8 @@
   display: flex;
   height: 100vh;
   width: auto;
-  background-color: black;
+  flex-wrap: wrap;
+  
   align-items: center;
   justify-content: center;
 }
@@ -15,13 +16,8 @@
   font-family: "Cabin", sans-serif;
   width: 50%;
 }
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 768px) {
   .App {
-    width: 70% ;
-  }
-}
-@media only screen and (max-width: 600px) {
-  .App {
-    width: 90% ;
+    width: 100% ;
   }
 }

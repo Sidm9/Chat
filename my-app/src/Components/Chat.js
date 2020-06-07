@@ -6,7 +6,7 @@ import styles from './chat.module.css';
 import Sender from './Chat User/Sender';
 import Reciever from './Chat User/Reciever';
 
-const Chat = () => {
+const Chat = (props) => {
 
     const [state, setstate] = useState([""]);
 
@@ -36,6 +36,7 @@ const Chat = () => {
         }
       `}</style>
             <div className={styles.chatScene}>
+                <h1 style={{ color: 'white', marginTop: 10, marginBottom: 10 }}>{props.type}</h1>
                 <div className={styles.chatArea}>
                     {list}
                 </div>
