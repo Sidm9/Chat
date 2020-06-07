@@ -1,0 +1,27 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+@import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+  align-items: center;
+  justify-content: center;
+}
+.App {
+  font-family: "Cabin", sans-serif;
+  width: 50%;
+}
+@media only screen and (max-width: 800px) {
+  .App {
+    width: 70% ;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .App {
+    width: 90% ;
+  }
+}
