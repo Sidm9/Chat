@@ -8,9 +8,8 @@
   height: 100vh;
   width: auto;
   flex-wrap: wrap;
-  
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 .App {
   font-family: "Cabin", sans-serif;
