@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/accessible-emoji */
+
 import React, { useState, useEffect } from 'react';
 import styles from './chat.module.css';
 import Sender from './Chat User/Sender';
@@ -16,7 +17,7 @@ const Chat = (props) => {
         if (e.keyCode === 13 && e.target.value.trim() !== '') {
             console.log("Value ==>", e.target.value);
             setstate(state.concat(e.target.value));
-            props.callBack(e.target.value);
+            props.callBack2(e.target.value);
             setText('');
         }
     }
@@ -25,23 +26,25 @@ const Chat = (props) => {
         setText(e.target.value)
     }
 
-    const list = props.dataFromParent.map((i) =>
-        (i.type === "out") ? 
-        <Sender message={i.message}/> : <Reciever message = {i.message} />);
+    const recieve = props.dataFromParent.map((i) =>
+        <Reciever message={i} />);
 
-
+    const send = state.map((i) =>
+        <Sender message={i} />);
 
     return (
         <>
             <style jsx>{`
         .body {
-          margin: 0px;  
+          margin: 0px;
         }
       `}</style>
+      
             <div className={styles.chatScene}>
                 <h1 style={{ color: 'white', marginTop: 10, marginBottom: 10 }}>{props.type}</h1>
                 <div className={styles.chatArea}>
-                    {list}
+                    {recieve}
+                    {send}
                 </div>
                 <div className={styles.bottom}>
                     <input

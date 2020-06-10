@@ -6,8 +6,8 @@ const Sender = (props) => {
         <div>
             <div className={styles.recieverContainer}>
                 <div className={styles.data}>
-                {props.message}
-            </div>
+                    {props.message}
+                </div>
                 <div className={styles.avatarHolder}>
                     <img className={styles.img} alt="Receiever" src="https://picsum.photos/200/300/?blur" />
                 </div>
