@@ -5,7 +5,7 @@ const Sender = (props) => {
     return (
         <div>
             <div className={styles.recieverContainer}>
-                <div className={styles.data}>
+                <div className={styles.data + " " + styles.dataSend}>
                     {props.message}
                 </div>
                 <div className={styles.avatarHolder}>

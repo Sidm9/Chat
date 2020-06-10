@@ -9,13 +9,13 @@ import { subscribeToTimer } from '../api.js';
 
 const Chat = (props) => {
 
-    const [state, setstate] = useState([null]);
+    // const [state, setstate] = useState([null]);
     const [text, setText] = useState();
 
     const keyPress = (e) => {
         if (e.keyCode === 13 && e.target.value.trim() !== '') {
             console.log("Value ==>", e.target.value);
-            setstate(state.concat(e.target.value));
+            // setstate(state.concat(e.target.value));
             props.callBack(e.target.value);
             setText('');
         }
@@ -25,9 +25,11 @@ const Chat = (props) => {
         setText(e.target.value)
     }
 
-    const list = props.dataFromParent.map((i) =>
-        (i.type === "out") ? 
-        <Sender message={i.message}/> : <Reciever message = {i.message} />);
+
+    const messages = props.dataFromParent.map((i) =>
+        (i.type === "out") ?
+            <Sender message={i.message} /> : <Reciever message={i.message} />);
+
 
 
 
@@ -41,7 +43,7 @@ const Chat = (props) => {
             <div className={styles.chatScene}>
                 <h1 style={{ color: 'white', marginTop: 10, marginBottom: 10 }}>{props.type}</h1>
                 <div className={styles.chatArea}>
-                    {list}
+                   {messages}
                 </div>
                 <div className={styles.bottom}>
                     <input

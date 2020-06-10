@@ -24,24 +24,23 @@ function App() {
       message: "This is a message",
       type: "out",
     },
+    {
+      message: "This is a message",
+      type: "in",
+    },
+
   ]);
 
   const callBack = (ChildData) => {
-    setMain(...main, { message: ChildData, type: "in" });
-    // console.log("Parent", { main })
+    setMain(main => [...main, { message: ChildData, type: "out" }]);
   }
-
-  // const callBack2 = (ChildData) => {
-  //   setMain(main.concat(ChildData));
-  //   console.log("Parent", { main })
-  // }
 
   return (
     <div className="container">
       <div className="App">
         <Chat type="Person1" callBack={callBack} dataFromParent={main} />
       </div>
-      
+
     </div>
   );
 }
