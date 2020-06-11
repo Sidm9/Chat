@@ -49,6 +49,13 @@
   transition: 0.3s;
   align-items: center;
 }
+.h2 {
+  color: white;
+  font-family: Coves;
+  text-align: center;
+  margin: 10px;
+  margin-left: 30px;
+}
 .dataSend {
   border-radius: 20px 20px 0px 20px;
 }

@@ -6,7 +6,6 @@ import React, { useState, useEffect } from 'react';
 import styles from './chat.module.css';
 import Sender from './Chat User/Sender';
 import Reciever from './Chat User/Reciever';
-import { subscribeToTimer } from '../api.js';
 
 const Chat = (props) => {
 

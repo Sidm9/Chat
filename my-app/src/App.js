@@ -1,35 +1,72 @@
 /* eslint-disable react/jsx-pascal-case */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import io from "socket.io-client";
 import Chat from './Components/Chat.js';
-/* eslint-disable-next-line  */
-import Chat_ from './Components/Chat_.js';
+
+
+const socket = io("http://localhost:3000", {
+  transports: ["websocket", "polling"]
+});
+
+
 function App() {
 
   const [main, setMain] = useState([
     {
-      message: "This is a message",
+      message: "Annie Are you okay?",
       type: "out",
     },
     {
-      message: "This is a message",
+      message: "Annie Are you okay?",
       type: "in",
     },
     {
-      message: "This is a message",
-      type: "in",
-    },
-    {
-      message: "This is a message",
+      message: "Are you okay annie?",
       type: "out",
     },
     {
-      message: "This is a message",
+      message: "You've been hit by ",
       type: "in",
+    },
+    {
+      message: "You've been stuck by ",
+      type: "out",
+    },
+    {
+      message: "You've been stuck by ",
+      type: "in",
+    },
+    {
+      message: "A smooth criminal 🕺🏻",
+      type: "out",
+    },
+    {
+      message: "Aaaaaoooooo!!!! 🕺🏻",
+      type: "in",   
     },
 
   ]);
+
+  // useEffect(() => {
+
+  //   socket.on("connect", () => {
+  //     socket.emit("Connected User");
+  //   })
+
+  //   socket.on("disconnect", () => {
+  //     socket.emit("Disconneted User");
+  //   })
+
+  //   socket.on("message", message => {
+  //     callBack(message);
+  //   })
+
+  //  // socket.emit("sent", message);
+
+
+  // }, [])
 
   const callBack = (ChildData) => {
     setMain(main => [...main, { message: ChildData, type: "out" }]);

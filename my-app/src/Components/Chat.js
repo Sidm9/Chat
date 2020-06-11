@@ -5,13 +5,12 @@ import React, { useState, useEffect } from 'react';
 import styles from './chat.module.css';
 import Sender from './Chat User/Sender';
 import Reciever from './Chat User/Reciever';
-import { subscribeToTimer } from '../api.js';
+import { useLocation } from "react-router-dom";
 
 const Chat = (props) => {
-
+    const location = useLocation();
     // const [state, setstate] = useState([null]);
     const [text, setText] = useState();
-
     const keyPress = (e) => {
         if (e.keyCode === 13 && e.target.value.trim() !== '') {
             console.log("Value ==>", e.target.value);
@@ -31,8 +30,6 @@ const Chat = (props) => {
             <Sender message={i.message} /> : <Reciever message={i.message} />);
 
 
-
-
     return (
         <>
             <style jsx>{`
@@ -41,9 +38,9 @@ const Chat = (props) => {
         }
       `}</style>
             <div className={styles.chatScene}>
-                <h1 style={{ color: 'white', marginTop: 10, marginBottom: 10 }}>{props.type}</h1>
+                <h1 style={{ color: 'white', marginTop: 10, marginBottom: 10 }}>{location.data}</h1>
                 <div className={styles.chatArea}>
-                   {messages}
+                    {messages}
                 </div>
                 <div className={styles.bottom}>
                     <input
