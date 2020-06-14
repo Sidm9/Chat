@@ -1,19 +1,18 @@
-/* eslint-disable react/jsx-pascal-case */
-
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import io from "socket.io-client";
 import Chat from './Components/Chat.js';
+import { useLocation } from "react-router-dom";
 
-
-const socket = io("http://localhost:3000", {
+const socket = io("http://localhost:3001", {
   transports: ["websocket", "polling"]
 });
 
 
 function App() {
-
-  const [main, setMain] = useState([
+  const location = useLocation();
+  const [users, setUsers] = useState(location.data);
+  const [messages, setMessages] = useState([
     {
       message: "Annie Are you okay?",
       type: "out",
@@ -44,38 +43,25 @@ function App() {
     },
     {
       message: "Aaaaaoooooo!!!! 🕺🏻",
-      type: "in",   
+      type: "in",
     },
 
   ]);
 
-  // useEffect(() => {
+  useEffect(() => {
+    socket.emit("chat message", messages.message);
+    
+  }, [])
 
-  //   socket.on("connect", () => {
-  //     socket.emit("Connected User");
-  //   })
-
-  //   socket.on("disconnect", () => {
-  //     socket.emit("Disconneted User");
-  //   })
-
-  //   socket.on("message", message => {
-  //     callBack(message);
-  //   })
-
-  //  // socket.emit("sent", message);
-
-
-  // }, [])
 
   const callBack = (ChildData) => {
-    setMain(main => [...main, { message: ChildData, type: "out" }]);
+    setMessages(main => [...main, { message: ChildData, type: "out" }]);
   }
 
   return (
     <div className="container">
       <div className="App">
-        <Chat type="Person1" callBack={callBack} dataFromParent={main} />
+        <Chat type="Person1" callBack={callBack} dataFromParent={messages} />
       </div>
 
     </div>
@@ -83,5 +69,3 @@ function App() {
 }
 
 export default App;
-
-
