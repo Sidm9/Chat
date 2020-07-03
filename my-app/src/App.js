@@ -3,6 +3,7 @@ import './App.css';
 import io from "socket.io-client";
 import Chat from './Components/Chat.js';
 import { useLocation } from "react-router-dom";
+import Sender from './Components/Chat User/Sender';
 
 const socket = io("http://localhost:3001", {
   transports: ["websocket", "polling"]
@@ -49,13 +50,17 @@ function App() {
   ]);
 
   useEffect(() => {
-    socket.emit("chat message", messages.message);
-    
+    // Sender();
   }, [])
+
 
 
   const callBack = (ChildData) => {
     setMessages(main => [...main, { message: ChildData, type: "out" }]);
+    socket.emit("chat message", ChildData);
+    socket.on('chat message', (msg) => {
+
+    });
   }
 
   return (
