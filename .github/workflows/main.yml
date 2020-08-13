@@ -1,0 +1,5 @@
+- name: Auto Approve Dependabot
+  uses: cognitedata/auto-approve-dependabot-action@v2.0.0
+  with:
+    # The GITHUB_TOKEN secret
+    github-token: 4023b47a2a898e82ccfa8870a77195363e85b96a
